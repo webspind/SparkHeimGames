@@ -467,12 +467,15 @@ a:hover {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);
   cursor: crosshair;
+  touch-action: none;
 }
 
 .minigame__ui {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-lg);
+  justify-content: center;
+  gap: var(--space-md);
 }
 
 .minigame__score {

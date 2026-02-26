@@ -147,11 +147,13 @@
   <!-- ========== MINI GAME ========== -->
   <section class="minigame" id="minigame">
     <h2 class="minigame__title" data-reveal>Penalty Kick</h2>
-    <p class="minigame__desc" data-reveal>Click to shoot. Score 5 to win. Show off those reflexes.</p>
+    <p class="minigame__desc" data-reveal>Aim with mouse (or touch), press SPACE or tap to lock aim, then SPACE/tap in the green zone to shoot. Score 5 to win. Best score = fewest shots.</p>
     <div class="minigame__container" data-reveal>
       <canvas id="penaltyCanvas" width="400" height="500" aria-label="Penalty kick mini game"></canvas>
       <div class="minigame__ui">
         <span class="minigame__score">Score: <strong id="penaltyScore">0</strong> / 5</span>
+        <span class="minigame__attempts">Shots: <strong id="penaltyAttempts">0</strong></span>
+        <span class="minigame__best">Best: <strong id="penaltyHighScore">—</strong> shots</span>
         <button class="minigame__restart" id="penaltyRestart">Play again</button>
       </div>
     </div>
