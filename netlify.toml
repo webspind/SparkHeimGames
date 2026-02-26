@@ -1,0 +1,6 @@
+# Netlify configuration for SparkHeim Games
+# The site lives in the sparkheim/ subfolder, not repo root
+
+[build]
+  publish = "sparkheim"
+  command = ""   # No build step – static HTML/CSS/JS
