@@ -1,0 +1,82 @@
+/* ============================================
+   SparkHeim Games – Animations
+   Soft, calm scroll reveals and transitions
+   ============================================ */
+
+/* ---------- Hero fade-in on load ---------- */
+.hero__content {
+  animation: hero-fade-in 800ms ease-out forwards;
+}
+
+.hero__scroll-indicator {
+  animation: hero-fade-in 800ms ease-out 400ms forwards,
+             scroll-bounce 2s ease-in-out 1.2s infinite;
+  opacity: 0;
+}
+
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- Scroll reveal transitions ---------- */
+/* Applied via JS – these define the end state */
+[data-reveal] {
+  transition: opacity 700ms ease-out, transform 700ms ease-out;
+}
+
+/* Staggered delays for game cards */
+.games__grid .game-card[data-reveal]:nth-child(1) { transition-delay: 0ms; }
+.games__grid .game-card[data-reveal]:nth-child(2) { transition-delay: 150ms; }
+.games__grid .game-card[data-reveal]:nth-child(3) { transition-delay: 300ms; }
+.games__grid .game-card[data-reveal]:nth-child(4) { transition-delay: 450ms; }
+.games__grid .game-card[data-reveal]:nth-child(5) { transition-delay: 600ms; }
+.games__grid .game-card[data-reveal]:nth-child(6) { transition-delay: 750ms; }
+
+/* About section – slight stagger */
+.about__text[data-reveal] {
+  transition-delay: 0ms;
+}
+
+.about__stats[data-reveal] {
+  transition-delay: 150ms;
+}
+
+/* Games title */
+.games__title[data-reveal] {
+  transition: opacity 700ms ease-out, transform 700ms ease-out;
+}
+
+/* Scroll indicator bounce (used with hero-fade-in) */
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(6px); }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .hero__content,
+  .hero__scroll-indicator {
+    animation: none;
+    opacity: 1;
+  }
+
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .games__grid .game-card[data-reveal],
+  .about__text[data-reveal],
+  .about__stats[data-reveal],
+  .games__title[data-reveal] {
+    transition-delay: 0ms;
+  }
+}

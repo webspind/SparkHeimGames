@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SparkHeim Games – Nordic indie game studio. Games forged in the North.">
+  <title>SparkHeim Games – Nordic Indie Game Studio</title>
+
+  <!-- Fonts: Playfair Display (headings) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <a href="#" class="nav__logo" aria-label="SparkHeim Games home">
+      <img src="assets/logo.png" alt="SparkHeim Games" class="nav__logo-img">
+    </a>
+    <ul class="nav__links">
+      <li><a href="#games">Games</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <header class="hero" id="hero">
+    <div class="hero__content">
+      <img src="assets/logo.png" alt="SparkHeim Games" class="hero__logo">
+      <h1 class="hero__headline">Games forged in the North</h1>
+      <p class="hero__subline">Nordic indie experiences for Roblox and Fortnite</p>
+    </div>
+    <a href="#games" class="hero__scroll-indicator" aria-label="Scroll to games">
+      <span class="hero__scroll-arrow"></span>
+    </a>
+  </header>
+
+  <!-- ========== GAMES GRID ========== -->
+  <section class="games" id="games">
+    <h2 class="games__title" data-reveal>Our Games</h2>
+    <div class="games__grid">
+      <!-- Game card 1 – Real -->
+      <article class="game-card game-card--available" data-reveal>
+        <div class="game-card__image">
+          <div class="game-card__placeholder game-card__placeholder--1"></div>
+        </div>
+        <div class="game-card__content">
+          <span class="game-card__platform">Roblox</span>
+          <h3 class="game-card__title">Project Aurora</h3>
+          <p class="game-card__description">A cozy survival adventure set in the Nordic wilderness.</p>
+        </div>
+      </article>
+
+      <!-- Game card 2 – Real -->
+      <article class="game-card game-card--available" data-reveal>
+        <div class="game-card__image">
+          <div class="game-card__placeholder game-card__placeholder--2"></div>
+        </div>
+        <div class="game-card__content">
+          <span class="game-card__platform">Fortnite UEFN</span>
+          <h3 class="game-card__title">Frostbound</h3>
+          <p class="game-card__description">Battle royale with a Nordic twist. Coming soon.</p>
+        </div>
+      </article>
+
+      <!-- Game card 3 – Real -->
+      <article class="game-card game-card--available" data-reveal>
+        <div class="game-card__image">
+          <div class="game-card__placeholder game-card__placeholder--3"></div>
+        </div>
+        <div class="game-card__content">
+          <span class="game-card__platform">Roblox</span>
+          <h3 class="game-card__title">Northern Lights</h3>
+          <p class="game-card__description">A narrative-driven exploration experience.</p>
+        </div>
+      </article>
+
+      <!-- Game card 4 – Coming Soon -->
+      <article class="game-card game-card--coming-soon" data-reveal>
+        <div class="game-card__image">
+          <div class="game-card__lock" aria-hidden="true">🔒</div>
+        </div>
+        <div class="game-card__content">
+          <span class="game-card__platform">TBA</span>
+          <h3 class="game-card__title">Coming Soon</h3>
+          <p class="game-card__description">Something new is brewing in the studio.</p>
+        </div>
+      </article>
+
+      <!-- Game card 5 – Coming Soon -->
+      <article class="game-card game-card--coming-soon" data-reveal>
+        <div class="game-card__image">
+          <div class="game-card__lock" aria-hidden="true">🔒</div>
+        </div>
+        <div class="game-card__content">
+          <span class="game-card__platform">TBA</span>
+          <h3 class="game-card__title">Coming Soon</h3>
+          <p class="game-card__description">Stay tuned for our next adventure.</p>
+        </div>
+      </article>
+
+      <!-- Game card 6 – Coming Soon -->
+      <article class="game-card game-card--coming-soon" data-reveal>
+        <div class="game-card__image">
+          <div class="game-card__lock" aria-hidden="true">🔒</div>
+        </div>
+        <div class="game-card__content">
+          <span class="game-card__platform">TBA</span>
+          <h3 class="game-card__title">Coming Soon</h3>
+          <p class="game-card__description">More Nordic magic on the way.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section class="about" id="about">
+    <div class="about__inner">
+      <div class="about__text" data-reveal>
+        <h2 class="about__title">We are SparkHeim</h2>
+        <p class="about__lead">
+          A small indie studio from the North, crafting games that blend Nordic atmosphere
+          with modern platforms. We believe in calm, thoughtful design and experiences
+          that feel both familiar and fresh.
+        </p>
+        <p class="about__body">
+          Based in Scandinavia, we draw inspiration from our landscapes, folklore, and
+          the quiet strength of Nordic design. Every game we make is a piece of that
+          world—crafted with care and attention to detail.
+        </p>
+      </div>
+      <div class="about__stats" data-reveal>
+        <div class="stat">
+          <span class="stat__value" data-stat="3">0</span>
+          <span class="stat__label">Games in development</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value" data-stat="2">0</span>
+          <span class="stat__label">Platforms</span>
+        </div>
+        <div class="stat">
+          <span class="stat__value" data-stat="2024">0</span>
+          <span class="stat__label">Founded</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <p class="footer__copyright">© 2024 SparkHeim Games. All rights reserved.</p>
+      <nav class="footer__links" aria-label="Social and platform links">
+        <a href="https://www.roblox.com" target="_blank" rel="noopener noreferrer">Roblox</a>
+        <a href="https://www.fortnite.com" target="_blank" rel="noopener noreferrer">Fortnite</a>
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
+        <a href="https://discord.com" target="_blank" rel="noopener noreferrer">Discord</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="js/scroll.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
