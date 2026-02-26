@@ -15,8 +15,8 @@
   --color-white: #ffffff;
 
   /* Typography */
-  --font-heading: "Cormorant Garamond", "Playfair Display", Georgia, serif;
-  --font-body: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-heading: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   /* Spacing */
   --space-xs: 0.5rem;
@@ -132,6 +132,40 @@ a:hover {
   color: var(--color-accent);
 }
 
+/* Hamburger toggle – hidden on desktop */
+.nav__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.nav__toggle-bar {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--color-text);
+  transition: transform var(--transition-base), opacity var(--transition-base);
+}
+
+.nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav__toggle[aria-expanded="true"] .nav__toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
 /* ---------- Hero ---------- */
 .hero {
   min-height: 100vh;
@@ -158,7 +192,7 @@ a:hover {
 .hero__headline {
   font-family: var(--font-heading);
   font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1.2;
   color: var(--color-text);
   margin-bottom: var(--space-md);
@@ -168,7 +202,7 @@ a:hover {
 .hero__subline {
   font-size: 1.125rem;
   color: var(--color-text-muted);
-  font-weight: 400;
+  font-style: italic;
 }
 
 .hero__scroll-indicator {
@@ -202,7 +236,7 @@ a:hover {
 .games__title {
   font-family: var(--font-heading);
   font-size: clamp(2rem, 4vw, 2.75rem);
-  font-weight: 500;
+  font-weight: 700;
   text-align: center;
   margin-bottom: var(--space-2xl);
   color: var(--color-text);
@@ -244,7 +278,7 @@ a:hover {
 .games__featured-title {
   font-family: var(--font-heading);
   font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 500;
+  font-weight: 700;
   margin-bottom: var(--space-xs);
 }
 
@@ -350,7 +384,7 @@ a:hover {
 .game-card__title {
   font-family: var(--font-heading);
   font-size: 1.5rem;
-  font-weight: 500;
+  font-weight: 700;
   margin-bottom: var(--space-xs);
   color: var(--color-text);
 }
@@ -359,6 +393,138 @@ a:hover {
   font-size: 0.95rem;
   color: var(--color-text-muted);
   line-height: 1.5;
+}
+
+/* Notify me form on Coming Soon cards */
+.notify-form {
+  display: flex;
+  gap: var(--space-xs);
+  margin-top: var(--space-md);
+}
+
+.notify-form input {
+  flex: 1;
+  padding: var(--space-xs) var(--space-sm);
+  border: 1px solid var(--color-bg-alt);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  background: var(--color-bg);
+}
+
+.notify-form input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.notify-form button {
+  padding: var(--space-xs) var(--space-sm);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--color-accent);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.notify-form button:hover {
+  background: var(--color-text);
+}
+
+/* ---------- Mini Game ---------- */
+.minigame {
+  padding: var(--space-3xl) var(--container-padding);
+  max-width: var(--container-max);
+  margin: 0 auto;
+  background: var(--color-bg);
+}
+
+.minigame__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: var(--space-sm);
+  color: var(--color-text);
+}
+
+.minigame__desc {
+  text-align: center;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-xl);
+}
+
+.minigame__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.minigame__container canvas {
+  max-width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  cursor: crosshair;
+}
+
+.minigame__ui {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.minigame__score {
+  font-size: 1.1rem;
+  color: var(--color-text);
+}
+
+.minigame__restart {
+  padding: var(--space-xs) var(--space-md);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-accent);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.minigame__restart:hover {
+  background: var(--color-accent);
+  color: var(--color-white);
+}
+
+/* ---------- Back to top ---------- */
+.back-to-top {
+  position: fixed;
+  bottom: var(--space-lg);
+  right: var(--space-lg);
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-white);
+  font-size: 1.25rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity var(--transition-base), visibility var(--transition-base), transform var(--transition-base);
+  z-index: 50;
+}
+
+.back-to-top:hover {
+  background: var(--color-text);
+}
+
+.back-to-top--visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 /* ---------- About ---------- */
@@ -379,7 +545,7 @@ a:hover {
 .about__title {
   font-family: var(--font-heading);
   font-size: clamp(2rem, 4vw, 2.75rem);
-  font-weight: 500;
+  font-weight: 700;
   margin-bottom: var(--space-lg);
   color: var(--color-text);
 }
@@ -389,6 +555,7 @@ a:hover {
   line-height: 1.6;
   color: var(--color-text);
   margin-bottom: var(--space-md);
+  font-style: italic;
 }
 
 .about__body {
@@ -412,7 +579,7 @@ a:hover {
 .stat__value {
   font-family: var(--font-heading);
   font-size: 2.5rem;
-  font-weight: 500;
+  font-weight: 700;
   color: var(--color-accent);
   line-height: 1;
 }
@@ -477,6 +644,30 @@ a:hover {
     --container-padding: var(--space-md);
   }
 
+  .nav__toggle {
+    display: flex;
+  }
+
+  .nav__links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 260px;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--space-2xl);
+    background: var(--color-bg);
+    box-shadow: -4px 0 24px rgba(44, 44, 44, 0.1);
+    transform: translateX(100%);
+    transition: transform var(--transition-base);
+    z-index: 99;
+  }
+
+  .nav__links--open {
+    transform: translateX(0);
+  }
+
   .nav__logo-img {
     height: 32px;
   }
@@ -502,6 +693,11 @@ a:hover {
 
   .games__grid {
     grid-template-columns: 1fr;
+  }
+
+  .minigame__container canvas {
+    width: 100%;
+    height: auto;
   }
 }
 

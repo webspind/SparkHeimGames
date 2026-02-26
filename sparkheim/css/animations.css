@@ -58,6 +58,13 @@
   transition: opacity 700ms ease-out, transform 700ms ease-out;
 }
 
+/* Mini game section */
+.minigame__title[data-reveal],
+.minigame__desc[data-reveal],
+.minigame__container[data-reveal] {
+  transition-delay: 0ms;
+}
+
 /* Scroll indicator bounce (used with hero-fade-in) */
 @keyframes scroll-bounce {
   0%, 100% { transform: translateX(-50%) translateY(0); }

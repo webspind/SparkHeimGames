@@ -6,11 +6,7 @@
   <meta name="description" content="SparkHeim Games – Nordic indie game studio. Games forged in the North.">
   <title>SparkHeim Games – Nordic Indie Game Studio</title>
 
-  <!-- Fonts: Playfair Display (headings) + DM Sans (body) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-
+  <link rel="icon" href="assets/logo.png" type="image/png">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css">
 </head>
@@ -20,9 +16,15 @@
     <a href="#" class="nav__logo" aria-label="SparkHeim Games home">
       <img src="assets/logo.png" alt="SparkHeim Games" class="nav__logo-img">
     </a>
-    <ul class="nav__links">
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span class="nav__toggle-bar"></span>
+      <span class="nav__toggle-bar"></span>
+      <span class="nav__toggle-bar"></span>
+    </button>
+    <ul class="nav__links" id="navLinks">
       <li><a href="#games">Games</a></li>
       <li><a href="#about">About</a></li>
+      <li><a href="#minigame">Mini Game</a></li>
     </ul>
   </nav>
 
@@ -90,7 +92,7 @@
       </article>
 
       <!-- Game card 4 – Coming Soon -->
-      <article class="game-card game-card--coming-soon" data-reveal>
+      <article class="game-card game-card--coming-soon game-card--notify" data-reveal>
         <div class="game-card__image">
           <div class="game-card__lock" aria-hidden="true">🔒</div>
         </div>
@@ -98,11 +100,16 @@
           <span class="game-card__platform">TBA</span>
           <h3 class="game-card__title">Coming Soon</h3>
           <p class="game-card__description">Something new is brewing in the studio.</p>
+          <!-- Replace YOUR_FORM_ID with your Formspree form ID from formspree.io -->
+          <form class="notify-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <input type="email" name="email" placeholder="Notify me" required aria-label="Email for updates">
+            <button type="submit">→</button>
+          </form>
         </div>
       </article>
 
       <!-- Game card 5 – Coming Soon -->
-      <article class="game-card game-card--coming-soon" data-reveal>
+      <article class="game-card game-card--coming-soon game-card--notify" data-reveal>
         <div class="game-card__image">
           <div class="game-card__lock" aria-hidden="true">🔒</div>
         </div>
@@ -110,11 +117,16 @@
           <span class="game-card__platform">TBA</span>
           <h3 class="game-card__title">Coming Soon</h3>
           <p class="game-card__description">Stay tuned for our next adventure.</p>
+          <!-- Replace YOUR_FORM_ID with your Formspree form ID from formspree.io -->
+          <form class="notify-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <input type="email" name="email" placeholder="Notify me" required aria-label="Email for updates">
+            <button type="submit">→</button>
+          </form>
         </div>
       </article>
 
       <!-- Game card 6 – Coming Soon -->
-      <article class="game-card game-card--coming-soon" data-reveal>
+      <article class="game-card game-card--coming-soon game-card--notify" data-reveal>
         <div class="game-card__image">
           <div class="game-card__lock" aria-hidden="true">🔒</div>
         </div>
@@ -122,8 +134,26 @@
           <span class="game-card__platform">TBA</span>
           <h3 class="game-card__title">Coming Soon</h3>
           <p class="game-card__description">More Nordic magic on the way.</p>
+          <!-- Replace YOUR_FORM_ID with your Formspree form ID from formspree.io -->
+          <form class="notify-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <input type="email" name="email" placeholder="Notify me" required aria-label="Email for updates">
+            <button type="submit">→</button>
+          </form>
         </div>
       </article>
+    </div>
+  </section>
+
+  <!-- ========== MINI GAME ========== -->
+  <section class="minigame" id="minigame">
+    <h2 class="minigame__title" data-reveal>Penalty Kick</h2>
+    <p class="minigame__desc" data-reveal>Click to shoot. Score 5 to win. Show off those reflexes.</p>
+    <div class="minigame__container" data-reveal>
+      <canvas id="penaltyCanvas" width="400" height="500" aria-label="Penalty kick mini game"></canvas>
+      <div class="minigame__ui">
+        <span class="minigame__score">Score: <strong id="penaltyScore">0</strong> / 5</span>
+        <button class="minigame__restart" id="penaltyRestart">Play again</button>
+      </div>
     </div>
   </section>
 
@@ -133,14 +163,10 @@
       <div class="about__text" data-reveal>
         <h2 class="about__title">We are SparkHeim</h2>
         <p class="about__lead">
-          A small indie studio from the North, crafting games that blend Nordic atmosphere
-          with modern platforms. We believe in calm, thoughtful design and experiences
-          that feel both familiar and fresh.
+          A Nordic indie studio building games that feel like home—warm, honest, and built to last.
         </p>
         <p class="about__body">
-          Based in Scandinavia, we draw inspiration from our landscapes, folklore, and
-          the quiet strength of Nordic design. Every game we make is a piece of that
-          world—crafted with care and attention to detail.
+          We started SparkHeim because we wanted to make games our way: no crunch, no compromise on quality, and a real connection to the places we come from. Every title we ship—whether it's a Roblox experience or a Fortnite UEFN project—carries that same spirit. We're small by choice, focused on craft, and here for the long run.
         </p>
       </div>
       <div class="about__stats" data-reveal>
@@ -163,7 +189,7 @@
   <!-- ========== FOOTER ========== -->
   <footer class="footer">
     <div class="footer__inner">
-      <p class="footer__copyright">© 2024 SparkHeim Games. All rights reserved.</p>
+      <p class="footer__copyright">© 2026 SparkHeim Games. All rights reserved.</p>
       <nav class="footer__links" aria-label="Social and platform links">
         <a href="https://www.roblox.com" target="_blank" rel="noopener noreferrer">Roblox</a>
         <a href="https://www.fortnite.com" target="_blank" rel="noopener noreferrer">Fortnite</a>
@@ -173,7 +199,11 @@
     </div>
   </footer>
 
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
   <script src="js/scroll.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/minigame.js"></script>
 </body>
 </html>
