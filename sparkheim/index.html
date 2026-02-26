@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to main content</a>
   <!-- ========== NAVIGATION ========== -->
   <nav class="nav" id="nav" aria-label="Main navigation">
     <a href="#" class="nav__logo" aria-label="SparkHeim Games home">
@@ -29,6 +30,7 @@
   </nav>
 
   <!-- ========== HERO ========== -->
+  <main id="main">
   <header class="hero" id="hero">
     <span class="hero__location" aria-hidden="true">Aarhus, Denmark</span>
     <div class="hero__content">
@@ -153,7 +155,7 @@
     <h2 class="minigame__title" data-reveal>Nordic Penalty</h2>
     <p class="minigame__desc" data-reveal>Aim with mouse (or touch), press SPACE or tap to lock aim, then SPACE/tap in the sweet spot to shoot. Score 5 to win. Best score = fewest shots. Skål!</p>
     <div class="minigame__container" data-reveal>
-      <canvas id="penaltyCanvas" width="400" height="500" aria-label="Penalty kick mini game"></canvas>
+      <canvas id="penaltyCanvas" width="800" height="1000" aria-label="Penalty kick mini game"></canvas>
       <div class="minigame__ui">
         <span class="minigame__score">Score: <strong id="penaltyScore">0</strong> / 5</span>
         <span class="minigame__attempts">Shots: <strong id="penaltyAttempts">0</strong></span>
@@ -193,6 +195,7 @@
     </div>
   </section>
 
+  </main>
   <!-- ========== FOOTER ========== -->
   <footer class="footer">
     <div class="footer__inner">

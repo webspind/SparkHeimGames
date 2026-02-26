@@ -26,24 +26,24 @@
   // Physics
   const GRAVITY = 0.35;
   const DRAG = 0.99;
-  const BALL_R = 10;
+  const BALL_R = 20;
 
-  // Layout
+  // Layout (HD: 800x1000)
   const BALL_START_X = W / 2;
-  const BALL_START_Y = H - 130;
-  const GOAL_TOP = 70;
-  const GOAL_BOTTOM = 230;
-  const GOAL_LEFT = 90;
-  const GOAL_RIGHT = W - 90;
-  const KEEPER_Y = 95;
-  const KEEPER_W = 55;
-  const KEEPER_H = 22;
+  const BALL_START_Y = H - 260;
+  const GOAL_TOP = 140;
+  const GOAL_BOTTOM = 460;
+  const GOAL_LEFT = 180;
+  const GOAL_RIGHT = W - 180;
+  const KEEPER_Y = 190;
+  const KEEPER_W = 110;
+  const KEEPER_H = 44;
   const goalW = GOAL_RIGHT - GOAL_LEFT;
   const goalH = GOAL_BOTTOM - GOAL_TOP;
 
   // Power meter
-  const POWER_METER_W = 120;
-  const POWER_METER_H = 16;
+  const POWER_METER_W = 240;
+  const POWER_METER_H = 32;
   const SWEET_SPOT_SIZE = 0.22;
 
   // Game state
@@ -118,7 +118,7 @@
       ctx.globalAlpha = p.life;
       ctx.fillStyle = p.color;
       ctx.beginPath();
-      ctx.arc(p.x, p.y, 4, 0, Math.PI * 2);
+      ctx.arc(p.x, p.y, 8, 0, Math.PI * 2);
       ctx.fill();
     });
     ctx.globalAlpha = 1;
@@ -127,7 +127,7 @@
   function triggerGoalJuice() {
     screenShake = 12;
     goalFlash = 0.4;
-    spawnParticles(ballX, ballY, 12, '#2c5f7a');
+    spawnParticles(ballX, ballY, 12, '#4169E1');
   }
 
   function draw() {
@@ -137,7 +137,7 @@
     ctx.translate(shakeX, shakeY);
 
     if (goalFlash > 0) {
-      ctx.fillStyle = `rgba(44, 95, 122, ${goalFlash})`;
+      ctx.fillStyle = `rgba(65, 105, 225, ${goalFlash})`;
       ctx.fillRect(-100, -100, W + 200, H + 200);
       goalFlash -= 0.02;
     }
@@ -146,11 +146,11 @@
     ctx.fillRect(0, 0, W, H);
 
     // Grass with subtle stripes
-    ctx.fillStyle = '#2c5f7a';
-    ctx.fillRect(0, H - 140, W, 140);
+    ctx.fillStyle = '#4169E1';
+    ctx.fillRect(0, H - 280, W, 280);
     ctx.fillStyle = 'rgba(255,255,255,0.05)';
     for (let i = 0; i < 10; i++) {
-      ctx.fillRect(0, H - 140 + i * 28, W, 14);
+      ctx.fillRect(0, H - 280 + i * 56, W, 28);
     }
 
     // Goal net
@@ -173,15 +173,15 @@
     }
 
     ctx.strokeStyle = '#2c2c2c';
-    ctx.lineWidth = 5;
+    ctx.lineWidth = 8;
     ctx.strokeRect(GOAL_LEFT, GOAL_TOP, goalW, goalH);
     ctx.fillStyle = 'rgba(255,255,255,0.2)';
     ctx.fillRect(GOAL_LEFT + 3, GOAL_TOP + 3, goalW - 6, goalH - 6);
 
     if (phase === 'aim' || phase === 'power') {
-      ctx.strokeStyle = 'rgba(44, 95, 122, 0.5)';
-      ctx.lineWidth = 2;
-      ctx.setLineDash([4, 4]);
+      ctx.strokeStyle = 'rgba(65, 105, 225, 0.6)';
+      ctx.lineWidth = 4;
+      ctx.setLineDash([8, 8]);
       ctx.beginPath();
       ctx.moveTo(BALL_START_X, BALL_START_Y);
       ctx.lineTo(aimX, aimY);
@@ -190,7 +190,7 @@
 
       ctx.fillStyle = 'rgba(201, 185, 154, 0.9)';
       ctx.beginPath();
-      ctx.arc(aimX, aimY, 8, 0, Math.PI * 2);
+      ctx.arc(aimX, aimY, 16, 0, Math.PI * 2);
       ctx.fill();
       ctx.strokeStyle = '#2c2c2c';
       ctx.lineWidth = 1;
@@ -211,48 +211,50 @@
     ctx.shadowBlur = 0;
     ctx.shadowOffsetY = 0;
     ctx.strokeStyle = '#2c2c2c';
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 4;
     ctx.stroke();
 
     drawParticles();
 
     if (phase === 'power') {
       const meterX = W / 2 - POWER_METER_W / 2;
-      const meterY = H - 80;
+      const meterY = H - 160;
       ctx.strokeStyle = '#2c2c2c';
-      ctx.lineWidth = 2;
+      ctx.lineWidth = 4;
       ctx.strokeRect(meterX, meterY, POWER_METER_W, POWER_METER_H);
       ctx.fillStyle = '#e8e4df';
-      ctx.fillRect(meterX + 2, meterY + 2, POWER_METER_W - 4, POWER_METER_H - 4);
+      ctx.fillRect(meterX + 4, meterY + 4, POWER_METER_W - 8, POWER_METER_H - 8);
 
       const sweetLeft = 0.5 - SWEET_SPOT_SIZE / 2;
       const sweetRight = 0.5 + SWEET_SPOT_SIZE / 2;
-      ctx.fillStyle = 'rgba(44, 95, 122, 0.5)';
-      ctx.fillRect(meterX + sweetLeft * POWER_METER_W, meterY + 2, SWEET_SPOT_SIZE * POWER_METER_W, POWER_METER_H - 4);
+      ctx.fillStyle = 'rgba(65, 105, 225, 0.5)';
+      ctx.fillRect(meterX + sweetLeft * POWER_METER_W, meterY + 4, SWEET_SPOT_SIZE * POWER_METER_W, POWER_METER_H - 8);
 
-      ctx.fillStyle = '#2c5f7a';
-      ctx.fillRect(meterX + powerMeterPos * (POWER_METER_W - 8), meterY + 2, 8, POWER_METER_H - 4);
+      ctx.fillStyle = '#4169E1';
+      ctx.fillRect(meterX + powerMeterPos * (POWER_METER_W - 16), meterY + 4, 16, POWER_METER_H - 8);
 
-      ctx.fillStyle = '#2c2c2c';
-      ctx.font = '12px Helvetica, Arial, sans-serif';
+      ctx.font = 'bold 24px Helvetica, Arial, sans-serif';
+      ctx.fillStyle = '#ffffff';
       ctx.textAlign = 'center';
-      ctx.fillText('Press SPACE in sweet spot', W / 2, meterY - 8);
+      ctx.fillText('Press SPACE in sweet spot', W / 2, meterY - 16);
     }
 
     if (phase === 'aim') {
-      ctx.fillStyle = 'rgba(44, 44, 44, 0.6)';
-      ctx.font = '14px Helvetica, Arial, sans-serif';
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '28px Helvetica, Arial, sans-serif';
       ctx.textAlign = 'center';
-      ctx.fillText('Aim with mouse · Press SPACE to lock aim', W / 2, H - 55);
+      ctx.fillText('Aim with mouse · Press SPACE to lock aim', W / 2, H - 110);
     }
 
     if (phase === 'result' && resultMsg) {
       ctx.fillStyle = 'rgba(44, 44, 44, 0.92)';
-      ctx.font = 'bold 26px Helvetica, Arial, sans-serif';
+      ctx.fillRect(W / 2 - 200, H / 2 - 80, 400, 160);
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 52px Helvetica, Arial, sans-serif';
       ctx.textAlign = 'center';
-      ctx.fillText(resultMsg, W / 2, H / 2 - 25);
-      ctx.font = '15px Helvetica, Arial, sans-serif';
-      ctx.fillText(gameOver ? 'Press Play again' : 'Press SPACE to continue', W / 2, H / 2 + 15);
+      ctx.fillText(resultMsg, W / 2, H / 2 - 40);
+      ctx.font = '30px Helvetica, Arial, sans-serif';
+      ctx.fillText(gameOver ? 'Press Play again' : 'Press SPACE to continue', W / 2, H / 2 + 40);
     }
 
     ctx.restore();
