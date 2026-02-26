@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="SparkHeim Games – Nordic indie game studio. Games forged in the North.">
-  <title>SparkHeim Games – Nordic Indie Game Studio</title>
+  <meta name="description" content="SparkHeim Games – Nordic indie game studio from Aarhus, Denmark. Games forged in the North.">
+  <title>SparkHeim Games – Nordic Indie Game Studio · Aarhus, Denmark</title>
 
   <link rel="icon" href="assets/logo.png" type="image/png">
   <link rel="stylesheet" href="css/style.css">
@@ -30,10 +30,12 @@
 
   <!-- ========== HERO ========== -->
   <header class="hero" id="hero">
+    <span class="hero__location" aria-hidden="true">Aarhus, Denmark</span>
     <div class="hero__content">
       <img src="assets/logo.png" alt="SparkHeim Games" class="hero__logo">
       <h1 class="hero__headline">Games forged in the North</h1>
       <p class="hero__subline">Nordic indie experiences for Roblox and Fortnite</p>
+      <p class="hero__motto">Spil smedet i Norden</p>
     </div>
     <a href="#games" class="hero__scroll-indicator" aria-label="Scroll to games">
       <span class="hero__scroll-arrow"></span>
@@ -42,6 +44,7 @@
 
   <!-- ========== GAMES GRID ========== -->
   <section class="games" id="games">
+    <div class="section-divider" data-reveal aria-hidden="true"></div>
     <h2 class="games__title" data-reveal>Our Games</h2>
 
     <!-- Featured banner – Soccer World Cup 16x9 -->
@@ -99,7 +102,7 @@
         <div class="game-card__content">
           <span class="game-card__platform">TBA</span>
           <h3 class="game-card__title">Coming Soon</h3>
-          <p class="game-card__description">Something new is brewing in the studio.</p>
+          <p class="game-card__description">Something brews in the fjords.</p>
           <!-- Replace YOUR_FORM_ID with your Formspree form ID from formspree.io -->
           <form class="notify-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
             <input type="email" name="email" placeholder="Notify me" required aria-label="Email for updates">
@@ -116,7 +119,7 @@
         <div class="game-card__content">
           <span class="game-card__platform">TBA</span>
           <h3 class="game-card__title">Coming Soon</h3>
-          <p class="game-card__description">Stay tuned for our next adventure.</p>
+          <p class="game-card__description">Nordic magic in the making.</p>
           <!-- Replace YOUR_FORM_ID with your Formspree form ID from formspree.io -->
           <form class="notify-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
             <input type="email" name="email" placeholder="Notify me" required aria-label="Email for updates">
@@ -133,7 +136,7 @@
         <div class="game-card__content">
           <span class="game-card__platform">TBA</span>
           <h3 class="game-card__title">Coming Soon</h3>
-          <p class="game-card__description">More Nordic magic on the way.</p>
+          <p class="game-card__description">Forged in the North. Coming soon.</p>
           <!-- Replace YOUR_FORM_ID with your Formspree form ID from formspree.io -->
           <form class="notify-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
             <input type="email" name="email" placeholder="Notify me" required aria-label="Email for updates">
@@ -146,8 +149,9 @@
 
   <!-- ========== MINI GAME ========== -->
   <section class="minigame" id="minigame">
-    <h2 class="minigame__title" data-reveal>Penalty Kick</h2>
-    <p class="minigame__desc" data-reveal>Aim with mouse (or touch), press SPACE or tap to lock aim, then SPACE/tap in the green zone to shoot. Score 5 to win. Best score = fewest shots.</p>
+    <div class="section-divider" data-reveal aria-hidden="true"></div>
+    <h2 class="minigame__title" data-reveal>Nordic Penalty</h2>
+    <p class="minigame__desc" data-reveal>Aim with mouse (or touch), press SPACE or tap to lock aim, then SPACE/tap in the sweet spot to shoot. Score 5 to win. Best score = fewest shots. Skål!</p>
     <div class="minigame__container" data-reveal>
       <canvas id="penaltyCanvas" width="400" height="500" aria-label="Penalty kick mini game"></canvas>
       <div class="minigame__ui">
@@ -161,14 +165,15 @@
 
   <!-- ========== ABOUT ========== -->
   <section class="about" id="about">
+    <div class="section-divider" data-reveal aria-hidden="true"></div>
     <div class="about__inner">
       <div class="about__text" data-reveal>
         <h2 class="about__title">We are SparkHeim</h2>
         <p class="about__lead">
-          A Nordic indie studio building games that feel like home—warm, honest, and built to last.
+          A Nordic indie studio from Aarhus, building games that feel like home—warm, honest, and forged to last.
         </p>
         <p class="about__body">
-          We started SparkHeim because we wanted to make games our way: no crunch, no compromise on quality, and a real connection to the places we come from. Every title we ship—whether it's a Roblox experience or a Fortnite UEFN project—carries that same spirit. We're small by choice, focused on craft, and here for the long run.
+          Based in Denmark's second city, we draw on Viking craft and Danish design: no crunch, no compromise, and a real connection to the North. Every title we ship—whether a Roblox experience or Fortnite UEFN project—carries that spirit. We're small by choice, focused on craft, and here for the long run.
         </p>
       </div>
       <div class="about__stats" data-reveal>
@@ -191,6 +196,7 @@
   <!-- ========== FOOTER ========== -->
   <footer class="footer">
     <div class="footer__inner">
+      <p class="footer__location">Aarhus, Denmark</p>
       <p class="footer__copyright">© 2026 SparkHeim Games. All rights reserved.</p>
       <nav class="footer__links" aria-label="Social and platform links">
         <a href="https://www.roblox.com" target="_blank" rel="noopener noreferrer">Roblox</a>

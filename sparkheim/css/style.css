@@ -10,7 +10,7 @@
   --color-bg-alt: #e8e4df;
   --color-text: #2c2c2c;
   --color-text-muted: #5a5a5a;
-  --color-accent: #8a9e8c;
+  --color-accent: #2c5f7a;
   --color-accent-warm: #c9b99a;
   --color-white: #ffffff;
 
@@ -64,6 +64,7 @@ body {
   line-height: 1.6;
   color: var(--color-text);
   background-color: var(--color-bg);
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0v80M0 40h80M20 20l40 40M60 20L20 60' fill='none' stroke='rgba(44,95,122,0.02)' stroke-width='0.3'/%3E%3C/svg%3E");
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -205,6 +206,27 @@ a:hover {
   font-style: italic;
 }
 
+.hero__location {
+  position: absolute;
+  top: var(--space-lg);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  opacity: 0.8;
+}
+
+.hero__motto {
+  margin-top: var(--space-md);
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
 .hero__scroll-indicator {
   position: absolute;
   bottom: var(--space-xl);
@@ -226,11 +248,40 @@ a:hover {
   margin-top: -8px;
 }
 
+/* ---------- Section dividers (Nordic knot motif) ---------- */
+.section-divider {
+  width: 60px;
+  height: 2px;
+  margin: 0 auto var(--space-xl);
+  background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+  opacity: 0.4;
+}
+
+.games .section-divider,
+.minigame .section-divider {
+  margin-top: 0;
+}
+
+.about .section-divider {
+  margin-bottom: var(--space-2xl);
+}
+
 /* ---------- Games Grid ---------- */
 .games {
   padding: var(--space-3xl) var(--container-padding);
   max-width: var(--container-max);
   margin: 0 auto;
+}
+
+.games__title::before,
+.minigame__title::before {
+  content: '◆';
+  display: block;
+  font-size: 0.5em;
+  color: var(--color-accent);
+  opacity: 0.5;
+  margin-bottom: var(--space-sm);
+  letter-spacing: 0.1em;
 }
 
 .games__title {
@@ -347,7 +398,7 @@ a:hover {
 }
 
 .game-card__placeholder--1 {
-  background: linear-gradient(180deg, rgba(138, 158, 140, 0.15) 0%, var(--color-bg) 100%);
+  background: linear-gradient(180deg, rgba(44, 95, 122, 0.15) 0%, var(--color-bg) 100%);
 }
 
 .game-card__placeholder--2 {
@@ -375,7 +426,7 @@ a:hover {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--color-accent);
-  background: rgba(138, 158, 140, 0.15);
+  background: rgba(44, 95, 122, 0.15);
   padding: var(--space-xs) var(--space-sm);
   border-radius: 999px;
   margin-bottom: var(--space-sm);
@@ -607,6 +658,15 @@ a:hover {
   align-items: center;
   gap: var(--space-md);
   text-align: center;
+}
+
+.footer__location {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  opacity: 0.9;
 }
 
 .footer__copyright {

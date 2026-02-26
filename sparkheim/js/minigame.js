@@ -127,7 +127,7 @@
   function triggerGoalJuice() {
     screenShake = 12;
     goalFlash = 0.4;
-    spawnParticles(ballX, ballY, 12, '#8a9e8c');
+    spawnParticles(ballX, ballY, 12, '#2c5f7a');
   }
 
   function draw() {
@@ -137,7 +137,7 @@
     ctx.translate(shakeX, shakeY);
 
     if (goalFlash > 0) {
-      ctx.fillStyle = `rgba(138, 158, 140, ${goalFlash})`;
+      ctx.fillStyle = `rgba(44, 95, 122, ${goalFlash})`;
       ctx.fillRect(-100, -100, W + 200, H + 200);
       goalFlash -= 0.02;
     }
@@ -146,7 +146,7 @@
     ctx.fillRect(0, 0, W, H);
 
     // Grass with subtle stripes
-    ctx.fillStyle = '#8a9e8c';
+    ctx.fillStyle = '#2c5f7a';
     ctx.fillRect(0, H - 140, W, 140);
     ctx.fillStyle = 'rgba(255,255,255,0.05)';
     for (let i = 0; i < 10; i++) {
@@ -179,7 +179,7 @@
     ctx.fillRect(GOAL_LEFT + 3, GOAL_TOP + 3, goalW - 6, goalH - 6);
 
     if (phase === 'aim' || phase === 'power') {
-      ctx.strokeStyle = 'rgba(138, 158, 140, 0.5)';
+      ctx.strokeStyle = 'rgba(44, 95, 122, 0.5)';
       ctx.lineWidth = 2;
       ctx.setLineDash([4, 4]);
       ctx.beginPath();
@@ -227,16 +227,16 @@
 
       const sweetLeft = 0.5 - SWEET_SPOT_SIZE / 2;
       const sweetRight = 0.5 + SWEET_SPOT_SIZE / 2;
-      ctx.fillStyle = 'rgba(138, 158, 140, 0.5)';
+      ctx.fillStyle = 'rgba(44, 95, 122, 0.5)';
       ctx.fillRect(meterX + sweetLeft * POWER_METER_W, meterY + 2, SWEET_SPOT_SIZE * POWER_METER_W, POWER_METER_H - 4);
 
-      ctx.fillStyle = '#8a9e8c';
+      ctx.fillStyle = '#2c5f7a';
       ctx.fillRect(meterX + powerMeterPos * (POWER_METER_W - 8), meterY + 2, 8, POWER_METER_H - 4);
 
       ctx.fillStyle = '#2c2c2c';
       ctx.font = '12px Helvetica, Arial, sans-serif';
       ctx.textAlign = 'center';
-      ctx.fillText('Press SPACE in green zone', W / 2, meterY - 8);
+      ctx.fillText('Press SPACE in sweet spot', W / 2, meterY - 8);
     }
 
     if (phase === 'aim') {

@@ -8,6 +8,11 @@
   animation: hero-fade-in 800ms ease-out forwards;
 }
 
+.hero__location {
+  animation: hero-fade-in 800ms ease-out 200ms forwards;
+  opacity: 0;
+}
+
 .hero__scroll-indicator {
   animation: hero-fade-in 800ms ease-out 400ms forwards,
              scroll-bounce 2s ease-in-out 1.2s infinite;
@@ -74,6 +79,7 @@
 /* Respect reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
   .hero__content,
+  .hero__location,
   .hero__scroll-indicator {
     animation: none;
     opacity: 1;
